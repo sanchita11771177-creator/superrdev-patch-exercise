@@ -1,14 +1,13 @@
--- H2-compatible task search query
+﻿-- H2-compatible task search query
 -- Used by the Spring Data repository layer
 --
 -- Parameters:
---   :term   — search term wrapped in wildcards, e.g. '%api%'
---   :status — status filter or NULL for all statuses
+--   :term   â€” search term wrapped in wildcards, e.g. '%api%'
+--   :status â€” status filter or NULL for all statuses
 
 SELECT *
 FROM tasks
 WHERE archived = FALSE
-  AND LOWER(title) LIKE :term
-   OR LOWER(description) LIKE :term
+  AND (LOWER(title) LIKE :term OR LOWER(description) LIKE :term)
   AND (:status IS NULL OR status = :status)
 ORDER BY created_at DESC;
