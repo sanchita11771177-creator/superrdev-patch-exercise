@@ -1,4 +1,4 @@
-﻿package com.internal.tasktracker;
+package com.internal.tasktracker;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
